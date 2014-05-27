@@ -9,12 +9,12 @@ Public Class MainForm
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
 
-        If TextBox2.Text = "" Then
+        If comboBoxServerIP.Text = "" Then
             NotifyIcon1.BalloonTipIcon = ToolTipIcon.Error
             NotifyIcon1.BalloonTipTitle = "Info Missing"
             NotifyIcon1.BalloonTipText = "Enter IP address!"
             NotifyIcon1.ShowBalloonTip(7000)
-        ElseIf TextBox3.Text = "" Then
+        ElseIf comboBoxServerPort.Text = "" Then
 
             NotifyIcon1.BalloonTipIcon = ToolTipIcon.Error
             NotifyIcon1.BalloonTipTitle = "Info Missing"
@@ -31,7 +31,7 @@ Public Class MainForm
                 Dim mypro As New Process
                 mypro.StartInfo.WindowStyle = ProcessWindowStyle.Hidden
                 mypro.StartInfo.FileName = SetupPath
-                mypro.StartInfo.Arguments = " " & TextBox2.Text & " " & TextBox3.Text
+                mypro.StartInfo.Arguments = " " & comboBoxServerIP.Text & " " & comboBoxServerPort.Text
                 mypro.Start()
 
 
@@ -82,7 +82,7 @@ Public Class MainForm
             reloadserverlist()
             If count.Count = 0 Then
             Else
-                ComboBox1.SelectedIndex = 0
+                comboBoxServerName.SelectedIndex = 0
             End If
 
 
@@ -98,7 +98,7 @@ Public Class MainForm
     End Sub
     Private Sub reloadserverlist()
 
-        ComboBox1.Items.Clear()
+        comboBoxServerName.Items.Clear()
         Dim files() As String = System.IO.Directory.GetFiles(appdataPath & "\Crasher")
         Dim di As New IO.DirectoryInfo(appdataPath & "\Crasher")
         Dim diar1 As IO.FileInfo() = di.GetFiles()
@@ -107,7 +107,7 @@ Public Class MainForm
 
         For Each dra In diar1
             'Dim strsplit() As String = Split(dra.FullName.ToString, ".")
-            ComboBox1.Items.Add(System.IO.Path.GetFileNameWithoutExtension(dra.FullName))
+            comboBoxServerName.Items.Add(System.IO.Path.GetFileNameWithoutExtension(dra.FullName))
 
         Next
 
@@ -116,16 +116,16 @@ Public Class MainForm
 
 
 
-    Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged
+    Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles comboBoxServerName.SelectedIndexChanged
 
 
 
 
         Dim fileExists1 As Boolean
-        fileExists1 = My.Computer.FileSystem.FileExists(appdataPath & "\Crasher\" & ComboBox1.Text & ".Server")
+        fileExists1 = My.Computer.FileSystem.FileExists(appdataPath & "\Crasher\" & comboBoxServerName.Text & ".Server")
         If fileExists1 = True Then
 
-            Dim file4 As New FileStream(appdataPath & "\Crasher\" & ComboBox1.Text & ".Server", FileMode.Open, FileAccess.Read)
+            Dim file4 As New FileStream(appdataPath & "\Crasher\" & comboBoxServerName.Text & ".Server", FileMode.Open, FileAccess.Read)
 
             Dim br As New BinaryReader(file4)
 
@@ -135,8 +135,8 @@ Public Class MainForm
 
 
 
-            TextBox2.Text = br.ReadString
-            TextBox3.Text = br.ReadString
+            comboBoxServerIP.Text = br.ReadString
+            comboBoxServerPort.Text = br.ReadString
 
 
             br.Close()
@@ -151,7 +151,7 @@ Public Class MainForm
 
 
 
-        If ComboBox1.Text = "" Or ComboBox1.Text = " " Then
+        If comboBoxServerName.Text = "" Or comboBoxServerName.Text = " " Then
             NotifyIcon1.BalloonTipIcon = ToolTipIcon.Error
             NotifyIcon1.BalloonTipTitle = "Server Name"
             NotifyIcon1.BalloonTipText = "Enter a Server name!"
@@ -159,15 +159,15 @@ Public Class MainForm
 
         Else
 
-            Dim file4 As New FileStream(appdataPath & "\Crasher\" & ComboBox1.Text & ".Server", FileMode.Create, FileAccess.Write)
+            Dim file4 As New FileStream(appdataPath & "\Crasher\" & comboBoxServerName.Text & ".Server", FileMode.Create, FileAccess.Write)
 
 
 
 
             Dim bw1 As New BinaryWriter(file4)
 
-            bw1.Write(TextBox2.Text)
-            bw1.Write(TextBox3.Text)
+            bw1.Write(comboBoxServerIP.Text)
+            bw1.Write(comboBoxServerPort.Text)
 
             bw1.Close()
             file4.Close()
@@ -214,11 +214,11 @@ Public Class MainForm
 
 
 
-        My.Computer.FileSystem.DeleteFile(appdataPath & "\Crasher\" & ComboBox1.Text & ".Server", FileIO.UIOption.OnlyErrorDialogs, FileIO.RecycleOption.DeletePermanently)
+        My.Computer.FileSystem.DeleteFile(appdataPath & "\Crasher\" & comboBoxServerName.Text & ".Server", FileIO.UIOption.OnlyErrorDialogs, FileIO.RecycleOption.DeletePermanently)
 
-        ComboBox1.Text = ""
-        TextBox2.Text = ""
-        TextBox3.Text = ""
+        comboBoxServerName.Text = ""
+        comboBoxServerIP.Text = ""
+        comboBoxServerPort.Text = ""
 
         NotifyIcon1.BalloonTipIcon = ToolTipIcon.Info
         NotifyIcon1.BalloonTipTitle = "Deleted"

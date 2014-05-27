@@ -25,12 +25,12 @@ Partial Class MainForm
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MainForm))
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.comboBoxServerName = New System.Windows.Forms.ComboBox()
         Me.NotifyIcon1 = New System.Windows.Forms.NotifyIcon(Me.components)
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
+        Me.comboBoxServerIP = New System.Windows.Forms.TextBox()
+        Me.comboBoxServerPort = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -54,17 +54,17 @@ Partial Class MainForm
         Me.Button1.Text = "Crash!"
         Me.Button1.UseVisualStyleBackColor = True
         '
-        'ComboBox1
+        'comboBoxServerName
         '
-        Me.ComboBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append
-        Me.ComboBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
-        Me.ComboBox1.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ComboBox1.ForeColor = System.Drawing.Color.Black
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(30, 134)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(130, 24)
-        Me.ComboBox1.TabIndex = 2
+        Me.comboBoxServerName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append
+        Me.comboBoxServerName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
+        Me.comboBoxServerName.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.comboBoxServerName.ForeColor = System.Drawing.Color.Black
+        Me.comboBoxServerName.FormattingEnabled = True
+        Me.comboBoxServerName.Location = New System.Drawing.Point(30, 134)
+        Me.comboBoxServerName.Name = "comboBoxServerName"
+        Me.comboBoxServerName.Size = New System.Drawing.Size(130, 24)
+        Me.comboBoxServerName.TabIndex = 2
         '
         'NotifyIcon1
         '
@@ -87,21 +87,21 @@ Partial Class MainForm
         Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(107, 22)
         Me.ExitToolStripMenuItem.Text = "Exit!"
         '
-        'TextBox2
+        'comboBoxServerIP
         '
-        Me.TextBox2.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox2.Location = New System.Drawing.Point(210, 135)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(154, 26)
-        Me.TextBox2.TabIndex = 4
+        Me.comboBoxServerIP.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.comboBoxServerIP.Location = New System.Drawing.Point(210, 135)
+        Me.comboBoxServerIP.Name = "comboBoxServerIP"
+        Me.comboBoxServerIP.Size = New System.Drawing.Size(154, 26)
+        Me.comboBoxServerIP.TabIndex = 4
         '
-        'TextBox3
+        'comboBoxServerPort
         '
-        Me.TextBox3.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox3.Location = New System.Drawing.Point(391, 135)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(73, 26)
-        Me.TextBox3.TabIndex = 5
+        Me.comboBoxServerPort.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.comboBoxServerPort.Location = New System.Drawing.Point(391, 135)
+        Me.comboBoxServerPort.Name = "comboBoxServerPort"
+        Me.comboBoxServerPort.Size = New System.Drawing.Size(73, 26)
+        Me.comboBoxServerPort.TabIndex = 5
         '
         'Label1
         '
@@ -208,7 +208,7 @@ Partial Class MainForm
         Me.Label5.TabIndex = 15
         Me.Label5.Text = ":"
         '
-        'Form1
+        'MainForm
         '
         Me.AcceptButton = Me.Button1
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -225,12 +225,12 @@ Partial Class MainForm
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.TextBox3)
-        Me.Controls.Add(Me.TextBox2)
-        Me.Controls.Add(Me.ComboBox1)
+        Me.Controls.Add(Me.comboBoxServerPort)
+        Me.Controls.Add(Me.comboBoxServerIP)
+        Me.Controls.Add(Me.comboBoxServerName)
         Me.Controls.Add(Me.Button1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.Name = "Form1"
+        Me.Name = "MainForm"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Crasher"
         Me.ContextMenuStrip1.ResumeLayout(False)
@@ -240,10 +240,10 @@ Partial Class MainForm
 
     End Sub
     Friend WithEvents Button1 As System.Windows.Forms.Button
-    Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
+    Friend WithEvents comboBoxServerName As System.Windows.Forms.ComboBox
     Friend WithEvents NotifyIcon1 As System.Windows.Forms.NotifyIcon
-    Friend WithEvents TextBox2 As System.Windows.Forms.TextBox
-    Friend WithEvents TextBox3 As System.Windows.Forms.TextBox
+    Friend WithEvents comboBoxServerIP As System.Windows.Forms.TextBox
+    Friend WithEvents comboBoxServerPort As System.Windows.Forms.TextBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label3 As System.Windows.Forms.Label
