@@ -1,6 +1,6 @@
 ﻿Imports System.IO
 
-Public Class Form1
+Public Class MainForm
     Public appdataPath As String = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)
 
     Public ip As String
@@ -27,7 +27,7 @@ Public Class Form1
 
                 Dim SetupPath As String = Application.StartupPath & "\crasherbase"
 
-                
+
                 Dim mypro As New Process
                 mypro.StartInfo.WindowStyle = ProcessWindowStyle.Hidden
                 mypro.StartInfo.FileName = SetupPath
@@ -63,7 +63,7 @@ Public Class Form1
 
 
 
-       
+
 
     End Sub
 
@@ -78,7 +78,7 @@ Public Class Form1
 
         If folderExists = True Then
 
-            
+
             reloadserverlist()
             If count.Count = 0 Then
             Else
@@ -90,7 +90,7 @@ Public Class Form1
             My.Computer.FileSystem.CreateDirectory(appdataPath & "\Crasher")
         End If
 
-       
+
 
 
 
@@ -149,7 +149,7 @@ Public Class Form1
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
 
-        
+
 
         If ComboBox1.Text = "" Or ComboBox1.Text = " " Then
             NotifyIcon1.BalloonTipIcon = ToolTipIcon.Error
@@ -188,7 +188,7 @@ Public Class Form1
 
         End If
 
-       
+
 
 
 
