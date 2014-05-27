@@ -14,12 +14,12 @@ Public Class MainForm
 
         'Check if the ServerIP or ServerPort are empty.
         'If either of them are empty, end module with notifying the user
-        If comboBoxServerIP.Text = "" Then
+        If textBoxServerIP.Text = "" Then
             NotifyIcon1.BalloonTipIcon = ToolTipIcon.Error
             NotifyIcon1.BalloonTipTitle = "Info Missing"
             NotifyIcon1.BalloonTipText = "Enter IP address!"
             NotifyIcon1.ShowBalloonTip(7000)
-        ElseIf comboBoxServerPort.Text = "" Then
+        ElseIf textBoxServerPort.Text = "" Then
 
             NotifyIcon1.BalloonTipIcon = ToolTipIcon.Error
             NotifyIcon1.BalloonTipTitle = "Info Missing"
@@ -42,7 +42,7 @@ Public Class MainForm
                 Dim crashProcess As New Process
                 crashProcess.StartInfo.WindowStyle = ProcessWindowStyle.Hidden
                 crashProcess.StartInfo.FileName = crasherBaseFilePath
-                crashProcess.StartInfo.Arguments = " " & comboBoxServerIP.Text & " " & comboBoxServerPort.Text
+                crashProcess.StartInfo.Arguments = " " & textBoxServerIP.Text & " " & textBoxServerPort.Text
                 crashProcess.Start()
 
 
@@ -148,8 +148,8 @@ Public Class MainForm
             Dim binaryReader As New BinaryReader(serverDataFile)
 
 
-            comboBoxServerIP.Text = binaryReader.ReadString
-            comboBoxServerPort.Text = binaryReader.ReadString
+            textBoxServerIP.Text = binaryReader.ReadString
+            textBoxServerPort.Text = binaryReader.ReadString
 
 
             binaryReader.Close()
@@ -180,8 +180,8 @@ Public Class MainForm
 
             Dim binaryWriter As New BinaryWriter(serverDataFile)
 
-            binaryWriter.Write(comboBoxServerIP.Text)
-            binaryWriter.Write(comboBoxServerPort.Text)
+            binaryWriter.Write(textBoxServerIP.Text)
+            binaryWriter.Write(textBoxServerPort.Text)
 
             binaryWriter.Close()
             serverDataFile.Close()
@@ -221,8 +221,8 @@ Public Class MainForm
 
         'Clears the combo box and text fields to be concurrent with deleted server.
         comboBoxServerName.Text = ""
-        comboBoxServerIP.Text = ""
-        comboBoxServerPort.Text = ""
+        textBoxServerIP.Text = ""
+        textBoxServerPort.Text = ""
 
         NotifyIcon1.BalloonTipIcon = ToolTipIcon.Info
         NotifyIcon1.BalloonTipTitle = "Deleted"

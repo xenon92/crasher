@@ -29,8 +29,8 @@ Partial Class MainForm
         Me.NotifyIcon1 = New System.Windows.Forms.NotifyIcon(Me.components)
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.comboBoxServerIP = New System.Windows.Forms.TextBox()
-        Me.comboBoxServerPort = New System.Windows.Forms.TextBox()
+        Me.textBoxServerIP = New System.Windows.Forms.TextBox()
+        Me.textBoxServerPort = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -87,21 +87,21 @@ Partial Class MainForm
         Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(107, 22)
         Me.ExitToolStripMenuItem.Text = "Exit!"
         '
-        'comboBoxServerIP
+        'textBoxServerIP
         '
-        Me.comboBoxServerIP.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.comboBoxServerIP.Location = New System.Drawing.Point(210, 135)
-        Me.comboBoxServerIP.Name = "comboBoxServerIP"
-        Me.comboBoxServerIP.Size = New System.Drawing.Size(154, 26)
-        Me.comboBoxServerIP.TabIndex = 4
+        Me.textBoxServerIP.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.textBoxServerIP.Location = New System.Drawing.Point(210, 135)
+        Me.textBoxServerIP.Name = "textBoxServerIP"
+        Me.textBoxServerIP.Size = New System.Drawing.Size(154, 26)
+        Me.textBoxServerIP.TabIndex = 4
         '
-        'comboBoxServerPort
+        'textBoxServerPort
         '
-        Me.comboBoxServerPort.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.comboBoxServerPort.Location = New System.Drawing.Point(391, 135)
-        Me.comboBoxServerPort.Name = "comboBoxServerPort"
-        Me.comboBoxServerPort.Size = New System.Drawing.Size(73, 26)
-        Me.comboBoxServerPort.TabIndex = 5
+        Me.textBoxServerPort.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.textBoxServerPort.Location = New System.Drawing.Point(391, 135)
+        Me.textBoxServerPort.Name = "textBoxServerPort"
+        Me.textBoxServerPort.Size = New System.Drawing.Size(73, 26)
+        Me.textBoxServerPort.TabIndex = 5
         '
         'Label1
         '
@@ -225,8 +225,8 @@ Partial Class MainForm
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.comboBoxServerPort)
-        Me.Controls.Add(Me.comboBoxServerIP)
+        Me.Controls.Add(Me.textBoxServerPort)
+        Me.Controls.Add(Me.textBoxServerIP)
         Me.Controls.Add(Me.comboBoxServerName)
         Me.Controls.Add(Me.buttonCrash)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
@@ -242,8 +242,8 @@ Partial Class MainForm
     Friend WithEvents buttonCrash As System.Windows.Forms.Button
     Friend WithEvents comboBoxServerName As System.Windows.Forms.ComboBox
     Friend WithEvents NotifyIcon1 As System.Windows.Forms.NotifyIcon
-    Friend WithEvents comboBoxServerIP As System.Windows.Forms.TextBox
-    Friend WithEvents comboBoxServerPort As System.Windows.Forms.TextBox
+    Friend WithEvents textBoxServerIP As System.Windows.Forms.TextBox
+    Friend WithEvents textBoxServerPort As System.Windows.Forms.TextBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label3 As System.Windows.Forms.Label
