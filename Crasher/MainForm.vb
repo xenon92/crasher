@@ -202,7 +202,7 @@ Public Class MainForm
         Application.Exit()
     End Sub
 
-    Private Sub LinkLabel1_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel1.LinkClicked
+    Private Sub linkLabelDisclaimerLinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles linkLabelDisclaimer.LinkClicked
 
         'Open the Disclaimer.pdf file packed with the GUI
         Dim disclaimerFilePath As String = Application.StartupPath & "\Disclaimer.pdf"

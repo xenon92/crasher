@@ -37,7 +37,7 @@ Partial Class MainForm
         Me.buttonSave = New System.Windows.Forms.Button()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.LinkLabel1 = New System.Windows.Forms.LinkLabel()
+        Me.linkLabelDisclaimer = New System.Windows.Forms.LinkLabel()
         Me.buttonDelete = New System.Windows.Forms.Button()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.ContextMenuStrip1.SuspendLayout()
@@ -172,19 +172,19 @@ Partial Class MainForm
         Me.PictureBox1.TabIndex = 11
         Me.PictureBox1.TabStop = False
         '
-        'LinkLabel1
+        'linkLabelDisclaimer
         '
-        Me.LinkLabel1.AutoSize = True
-        Me.LinkLabel1.BackColor = System.Drawing.Color.Transparent
-        Me.LinkLabel1.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.LinkLabel1.Font = New System.Drawing.Font("Georgia", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LinkLabel1.LinkColor = System.Drawing.Color.White
-        Me.LinkLabel1.Location = New System.Drawing.Point(503, 248)
-        Me.LinkLabel1.Name = "LinkLabel1"
-        Me.LinkLabel1.Size = New System.Drawing.Size(79, 14)
-        Me.LinkLabel1.TabIndex = 13
-        Me.LinkLabel1.TabStop = True
-        Me.LinkLabel1.Text = "DISCLAIMER"
+        Me.linkLabelDisclaimer.AutoSize = True
+        Me.linkLabelDisclaimer.BackColor = System.Drawing.Color.Transparent
+        Me.linkLabelDisclaimer.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.linkLabelDisclaimer.Font = New System.Drawing.Font("Georgia", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.linkLabelDisclaimer.LinkColor = System.Drawing.Color.White
+        Me.linkLabelDisclaimer.Location = New System.Drawing.Point(503, 248)
+        Me.linkLabelDisclaimer.Name = "linkLabelDisclaimer"
+        Me.linkLabelDisclaimer.Size = New System.Drawing.Size(79, 14)
+        Me.linkLabelDisclaimer.TabIndex = 13
+        Me.linkLabelDisclaimer.TabStop = True
+        Me.linkLabelDisclaimer.Text = "DISCLAIMER"
         '
         'buttonDelete
         '
@@ -218,7 +218,7 @@ Partial Class MainForm
         Me.ClientSize = New System.Drawing.Size(594, 274)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.buttonDelete)
-        Me.Controls.Add(Me.LinkLabel1)
+        Me.Controls.Add(Me.linkLabelDisclaimer)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.buttonSave)
@@ -252,7 +252,7 @@ Partial Class MainForm
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
     Friend WithEvents ContextMenuStrip1 As System.Windows.Forms.ContextMenuStrip
     Friend WithEvents ExitToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents LinkLabel1 As System.Windows.Forms.LinkLabel
+    Friend WithEvents linkLabelDisclaimer As System.Windows.Forms.LinkLabel
     Friend WithEvents buttonDelete As System.Windows.Forms.Button
     Friend WithEvents Label5 As System.Windows.Forms.Label
 
