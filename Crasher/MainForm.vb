@@ -7,7 +7,7 @@ Public Class MainForm
     Public port As String
     Public count As System.Collections.ObjectModel.ReadOnlyCollection(Of String)
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+    Private Sub buttonCrashClick(sender As Object, e As EventArgs) Handles buttonCrash.Click
 
         If comboBoxServerIP.Text = "" Then
             NotifyIcon1.BalloonTipIcon = ToolTipIcon.Error
@@ -147,7 +147,7 @@ Public Class MainForm
 
     End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+    Private Sub buttonSaveClick(sender As Object, e As EventArgs) Handles buttonSave.Click
 
 
 
@@ -210,7 +210,7 @@ Public Class MainForm
         mypro.Start()
     End Sub
 
-    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+    Private Sub buttonDeleteClick(sender As Object, e As EventArgs) Handles buttonDelete.Click
 
 
 

@@ -24,7 +24,7 @@ Partial Class MainForm
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MainForm))
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.buttonCrash = New System.Windows.Forms.Button()
         Me.comboBoxServerName = New System.Windows.Forms.ComboBox()
         Me.NotifyIcon1 = New System.Windows.Forms.NotifyIcon(Me.components)
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
@@ -34,25 +34,25 @@ Partial Class MainForm
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.Button2 = New System.Windows.Forms.Button()
+        Me.buttonSave = New System.Windows.Forms.Button()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.LinkLabel1 = New System.Windows.Forms.LinkLabel()
-        Me.Button3 = New System.Windows.Forms.Button()
+        Me.buttonDelete = New System.Windows.Forms.Button()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.ContextMenuStrip1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'Button1
+        'buttonCrash
         '
-        Me.Button1.Font = New System.Drawing.Font("Showcard Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(237, 225)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(121, 37)
-        Me.Button1.TabIndex = 0
-        Me.Button1.Text = "Crash!"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.buttonCrash.Font = New System.Drawing.Font("Showcard Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.buttonCrash.Location = New System.Drawing.Point(237, 225)
+        Me.buttonCrash.Name = "buttonCrash"
+        Me.buttonCrash.Size = New System.Drawing.Size(121, 37)
+        Me.buttonCrash.TabIndex = 0
+        Me.buttonCrash.Text = "Crash!"
+        Me.buttonCrash.UseVisualStyleBackColor = True
         '
         'comboBoxServerName
         '
@@ -139,15 +139,15 @@ Partial Class MainForm
         Me.Label3.TabIndex = 8
         Me.Label3.Text = "Port"
         '
-        'Button2
+        'buttonSave
         '
-        Me.Button2.Font = New System.Drawing.Font("Showcard Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Location = New System.Drawing.Point(505, 107)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(70, 35)
-        Me.Button2.TabIndex = 9
-        Me.Button2.Text = "Save"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.buttonSave.Font = New System.Drawing.Font("Showcard Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.buttonSave.Location = New System.Drawing.Point(505, 107)
+        Me.buttonSave.Name = "buttonSave"
+        Me.buttonSave.Size = New System.Drawing.Size(70, 35)
+        Me.buttonSave.TabIndex = 9
+        Me.buttonSave.Text = "Save"
+        Me.buttonSave.UseVisualStyleBackColor = True
         '
         'Label4
         '
@@ -186,15 +186,15 @@ Partial Class MainForm
         Me.LinkLabel1.TabStop = True
         Me.LinkLabel1.Text = "DISCLAIMER"
         '
-        'Button3
+        'buttonDelete
         '
-        Me.Button3.Font = New System.Drawing.Font("Showcard Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button3.Location = New System.Drawing.Point(505, 148)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(70, 35)
-        Me.Button3.TabIndex = 14
-        Me.Button3.Text = "Delete"
-        Me.Button3.UseVisualStyleBackColor = True
+        Me.buttonDelete.Font = New System.Drawing.Font("Showcard Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.buttonDelete.Location = New System.Drawing.Point(505, 148)
+        Me.buttonDelete.Name = "buttonDelete"
+        Me.buttonDelete.Size = New System.Drawing.Size(70, 35)
+        Me.buttonDelete.TabIndex = 14
+        Me.buttonDelete.Text = "Delete"
+        Me.buttonDelete.UseVisualStyleBackColor = True
         '
         'Label5
         '
@@ -210,25 +210,25 @@ Partial Class MainForm
         '
         'MainForm
         '
-        Me.AcceptButton = Me.Button1
+        Me.AcceptButton = Me.buttonCrash
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(594, 274)
         Me.Controls.Add(Me.Label5)
-        Me.Controls.Add(Me.Button3)
+        Me.Controls.Add(Me.buttonDelete)
         Me.Controls.Add(Me.LinkLabel1)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.Button2)
+        Me.Controls.Add(Me.buttonSave)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.comboBoxServerPort)
         Me.Controls.Add(Me.comboBoxServerIP)
         Me.Controls.Add(Me.comboBoxServerName)
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.buttonCrash)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "MainForm"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
@@ -239,7 +239,7 @@ Partial Class MainForm
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents buttonCrash As System.Windows.Forms.Button
     Friend WithEvents comboBoxServerName As System.Windows.Forms.ComboBox
     Friend WithEvents NotifyIcon1 As System.Windows.Forms.NotifyIcon
     Friend WithEvents comboBoxServerIP As System.Windows.Forms.TextBox
@@ -247,13 +247,13 @@ Partial Class MainForm
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label3 As System.Windows.Forms.Label
-    Friend WithEvents Button2 As System.Windows.Forms.Button
+    Friend WithEvents buttonSave As System.Windows.Forms.Button
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
     Friend WithEvents ContextMenuStrip1 As System.Windows.Forms.ContextMenuStrip
     Friend WithEvents ExitToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents LinkLabel1 As System.Windows.Forms.LinkLabel
-    Friend WithEvents Button3 As System.Windows.Forms.Button
+    Friend WithEvents buttonDelete As System.Windows.Forms.Button
     Friend WithEvents Label5 As System.Windows.Forms.Label
 
 End Class
