@@ -4,8 +4,6 @@ Public Class MainForm
 
     Public appdataPath As String = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)
 
-
-
     Public count As System.Collections.ObjectModel.ReadOnlyCollection(Of String)
 
     Private Sub buttonCrashClick(sender As Object, e As EventArgs) Handles buttonCrash.Click
@@ -45,7 +43,7 @@ Public Class MainForm
 
 
             Catch ex As Exception
-                'MsgBox(ex.Message)
+
                 NotifyIcon1.BalloonTipIcon = ToolTipIcon.Error
                 NotifyIcon1.BalloonTipTitle = "Something went Wrong"
                 NotifyIcon1.BalloonTipText = "Coudn't execute the Hack! Try again"
@@ -92,7 +90,6 @@ Public Class MainForm
 
         For Each eachFile In allFilesInfo
 
-            'Dim strsplit() As String = Split(dra.FullName.ToString, ".")
             comboBoxServerName.Items.Add(System.IO.Path.GetFileNameWithoutExtension(eachFile.FullName))
 
         Next
@@ -154,9 +151,7 @@ Public Class MainForm
 
             NotifyIcon1.ShowBalloonTip(7000)
 
-            ' ComboBox1.Text = ""
             reloadServerList()
-            'Form1_Load(Nothing, Nothing)
 
         End If
 
@@ -171,9 +166,7 @@ Public Class MainForm
         Dim disclaimerFilePath As String = Application.StartupPath & "\Disclaimer.pdf"
 
         Dim openDisclaimerProcess As New Process
-        'mypro.StartInfo.WindowStyle = ProcessWindowStyle.Hidden
         openDisclaimerProcess.StartInfo.FileName = disclaimerFilePath
-        'mypro.StartInfo.Arguments = " " & TextBox2.Text & " " & TextBox3.Text
         openDisclaimerProcess.Start()
 
     End Sub
@@ -193,7 +186,5 @@ Public Class MainForm
 
         reloadServerList()
 
-        'Form1_Load(Me, New System.EventArgs)
-        'Me.Show()
     End Sub
 End Class
