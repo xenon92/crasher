@@ -3,8 +3,8 @@
 Public Class MainForm
     Public appdataPath As String = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)
 
-    Public ip As String
-    Public port As String
+
+
     Public count As System.Collections.ObjectModel.ReadOnlyCollection(Of String)
 
     Private Sub buttonCrashClick(sender As Object, e As EventArgs) Handles buttonCrash.Click
@@ -128,11 +128,6 @@ Public Class MainForm
             Dim file4 As New FileStream(appdataPath & "\Crasher\" & comboBoxServerName.Text & ".Server", FileMode.Open, FileAccess.Read)
 
             Dim br As New BinaryReader(file4)
-
-            ' Dim ip As String
-            'Dim port As String
-
-
 
 
             comboBoxServerIP.Text = br.ReadString
