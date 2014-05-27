@@ -1,6 +1,7 @@
 ﻿Imports System.IO
 
 Public Class MainForm
+
     Public appdataPath As String = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)
 
 
@@ -25,14 +26,14 @@ Public Class MainForm
             Try
 
 
-                Dim SetupPath As String = Application.StartupPath & "\crasherbase"
+                Dim crasherBaseFilePath As String = Application.StartupPath & "\crasherbase"
 
 
-                Dim mypro As New Process
-                mypro.StartInfo.WindowStyle = ProcessWindowStyle.Hidden
-                mypro.StartInfo.FileName = SetupPath
-                mypro.StartInfo.Arguments = " " & comboBoxServerIP.Text & " " & comboBoxServerPort.Text
-                mypro.Start()
+                Dim crashProcess As New Process
+                crashProcess.StartInfo.WindowStyle = ProcessWindowStyle.Hidden
+                crashProcess.StartInfo.FileName = crasherBaseFilePath
+                crashProcess.StartInfo.Arguments = " " & comboBoxServerIP.Text & " " & comboBoxServerPort.Text
+                crashProcess.Start()
 
 
 
@@ -50,20 +51,9 @@ Public Class MainForm
                 NotifyIcon1.BalloonTipText = "Coudn't execute the Hack! Try again"
                 NotifyIcon1.ShowBalloonTip(7000)
 
-
             End Try
 
-
-
-
-
         End If
-
-
-
-
-
-
 
     End Sub
 
@@ -78,64 +68,58 @@ Public Class MainForm
 
         If folderExists = True Then
 
-
-            reloadserverlist()
+            reloadServerList()
             If count.Count = 0 Then
             Else
                 comboBoxServerName.SelectedIndex = 0
             End If
 
-
         Else
+
             My.Computer.FileSystem.CreateDirectory(appdataPath & "\Crasher")
+
         End If
 
-
-
-
-
-
     End Sub
-    Private Sub reloadserverlist()
+    Private Sub reloadServerList()
 
         comboBoxServerName.Items.Clear()
         Dim files() As String = System.IO.Directory.GetFiles(appdataPath & "\Crasher")
-        Dim di As New IO.DirectoryInfo(appdataPath & "\Crasher")
-        Dim diar1 As IO.FileInfo() = di.GetFiles()
-        Dim dra As IO.FileInfo
+        Dim directoryInfo As New IO.DirectoryInfo(appdataPath & "\Crasher")
+        Dim allFilesInfo As IO.FileInfo() = directoryInfo.GetFiles()
+        Dim eachFile As IO.FileInfo
 
 
-        For Each dra In diar1
+        For Each eachFile In allFilesInfo
+
             'Dim strsplit() As String = Split(dra.FullName.ToString, ".")
-            comboBoxServerName.Items.Add(System.IO.Path.GetFileNameWithoutExtension(dra.FullName))
+            comboBoxServerName.Items.Add(System.IO.Path.GetFileNameWithoutExtension(eachFile.FullName))
 
         Next
 
         count = My.Computer.FileSystem.GetFiles(appdataPath & "\Crasher")
+
     End Sub
 
 
 
     Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles comboBoxServerName.SelectedIndexChanged
 
+        Dim serverFileExists As Boolean
+        serverFileExists = My.Computer.FileSystem.FileExists(appdataPath & "\Crasher\" & comboBoxServerName.Text & ".Server")
+        If serverFileExists = True Then
+
+            Dim serverDataFile As New FileStream(appdataPath & "\Crasher\" & comboBoxServerName.Text & ".Server", FileMode.Open, FileAccess.Read)
+
+            Dim binaryReader As New BinaryReader(serverDataFile)
 
 
-
-        Dim fileExists1 As Boolean
-        fileExists1 = My.Computer.FileSystem.FileExists(appdataPath & "\Crasher\" & comboBoxServerName.Text & ".Server")
-        If fileExists1 = True Then
-
-            Dim file4 As New FileStream(appdataPath & "\Crasher\" & comboBoxServerName.Text & ".Server", FileMode.Open, FileAccess.Read)
-
-            Dim br As New BinaryReader(file4)
+            comboBoxServerIP.Text = binaryReader.ReadString
+            comboBoxServerPort.Text = binaryReader.ReadString
 
 
-            comboBoxServerIP.Text = br.ReadString
-            comboBoxServerPort.Text = br.ReadString
-
-
-            br.Close()
-            file4.Close()
+            binaryReader.Close()
+            serverDataFile.Close()
 
 
         End If
@@ -154,22 +138,15 @@ Public Class MainForm
 
         Else
 
-            Dim file4 As New FileStream(appdataPath & "\Crasher\" & comboBoxServerName.Text & ".Server", FileMode.Create, FileAccess.Write)
+            Dim serverDataFile As New FileStream(appdataPath & "\Crasher\" & comboBoxServerName.Text & ".Server", FileMode.Create, FileAccess.Write)
 
+            Dim binaryWriter As New BinaryWriter(serverDataFile)
 
+            binaryWriter.Write(comboBoxServerIP.Text)
+            binaryWriter.Write(comboBoxServerPort.Text)
 
-
-            Dim bw1 As New BinaryWriter(file4)
-
-            bw1.Write(comboBoxServerIP.Text)
-            bw1.Write(comboBoxServerPort.Text)
-
-            bw1.Close()
-            file4.Close()
-
-
-
-
+            binaryWriter.Close()
+            serverDataFile.Close()
 
             NotifyIcon1.BalloonTipIcon = ToolTipIcon.Info
             NotifyIcon1.BalloonTipTitle = "Saved"
@@ -178,14 +155,10 @@ Public Class MainForm
             NotifyIcon1.ShowBalloonTip(7000)
 
             ' ComboBox1.Text = ""
-            reloadserverlist()
+            reloadServerList()
             'Form1_Load(Nothing, Nothing)
 
         End If
-
-
-
-
 
     End Sub
 
@@ -195,19 +168,17 @@ Public Class MainForm
 
     Private Sub LinkLabel1_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel1.LinkClicked
 
-        Dim SetupPath As String = Application.StartupPath & "\Disclaimer.pdf"
+        Dim disclaimerFilePath As String = Application.StartupPath & "\Disclaimer.pdf"
 
-
-        Dim mypro As New Process
+        Dim openDisclaimerProcess As New Process
         'mypro.StartInfo.WindowStyle = ProcessWindowStyle.Hidden
-        mypro.StartInfo.FileName = SetupPath
+        openDisclaimerProcess.StartInfo.FileName = disclaimerFilePath
         'mypro.StartInfo.Arguments = " " & TextBox2.Text & " " & TextBox3.Text
-        mypro.Start()
+        openDisclaimerProcess.Start()
+
     End Sub
 
     Private Sub buttonDeleteClick(sender As Object, e As EventArgs) Handles buttonDelete.Click
-
-
 
         My.Computer.FileSystem.DeleteFile(appdataPath & "\Crasher\" & comboBoxServerName.Text & ".Server", FileIO.UIOption.OnlyErrorDialogs, FileIO.RecycleOption.DeletePermanently)
 
@@ -220,10 +191,7 @@ Public Class MainForm
         NotifyIcon1.BalloonTipText = "Server Deleted!"
         NotifyIcon1.ShowBalloonTip(7000)
 
-        reloadserverlist()
-
-
-
+        reloadServerList()
 
         'Form1_Load(Me, New System.EventArgs)
         'Me.Show()
