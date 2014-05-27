@@ -135,7 +135,7 @@ Public Class MainForm
 
 
 
-    Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles comboBoxServerName.SelectedIndexChanged
+    Private Sub comboBoxServerNameSelectedIndexChanged(sender As Object, e As EventArgs) Handles comboBoxServerName.SelectedIndexChanged
 
         'This module populates the ServerIP and ServerPort text fields when 
         'a new server is selected from the server name combo box.
