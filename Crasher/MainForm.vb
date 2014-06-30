@@ -37,8 +37,8 @@ Public Class MainForm
                 'CLI tool is run here
                 'The CLI tool is named as "crasherbase" so that it doesn't reveal
                 'information about the original malicious code.
-                'The malicious code is not endorsed by my, nor will I distribute or include
-                'in my source code.
+                'The malicious code is not endorsed by me. Neither will I distribute
+                'nor include it in my source code.
                 Dim crashProcess As New Process
                 crashProcess.StartInfo.WindowStyle = ProcessWindowStyle.Hidden
                 crashProcess.StartInfo.FileName = crasherBaseFilePath
@@ -58,7 +58,7 @@ Public Class MainForm
 
                 'An exception will occur if the "crasherbase" file is missing.
                 'This will cause system tray to notify the user that something went wrong
-                'without releavling info about the original hacking code.
+                'without revealing info about the original hacking code.
                 NotifyIcon1.BalloonTipIcon = ToolTipIcon.Error
                 NotifyIcon1.BalloonTipTitle = "Something went Wrong"
                 NotifyIcon1.BalloonTipText = "Coudn't execute the Hack! Try again"
@@ -103,7 +103,7 @@ Public Class MainForm
     End Sub
     Private Sub reloadServerList()
 
-        'This module will retreive the saved server in the "/Appdata/Crasher" folder
+        'This module will retrieve the saved server in the "/Appdata/Crasher" folder
         'Saved server are in the following format.
         '
         'Each server's info will be stored in a different file.
