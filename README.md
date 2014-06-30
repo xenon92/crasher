@@ -10,6 +10,13 @@ Crasher
 - This GUI was made solely for educational purposes
 
 
+Screenshot
+---
+
+![alt text] (https://raw.githubusercontent.com/xenon92/crasher/master/screenshot.PNG?raw=true "Screenshot of the GUI")
+
+
+
 System Requirements
 ----
 
