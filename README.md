@@ -22,3 +22,21 @@ System Requirements
 
 - .NET Framework
 - Windows 7, Windows 8, Windows 8.1
+
+
+Downloads
+---
+
+Check "[Releases] (https://github.com/xenon92/crasher/releases)" section at Github source.
+
+
+License
+---
+
+The source code is licensed under GNU General Public License v3 ([GPL v3] (https://github.com/xenon92/crasher/blob/master/LICENSE))
+
+
+Copyright
+---
+
+Copyright (c) 2012, 2014 Shubhang Rathore
